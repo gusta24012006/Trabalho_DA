@@ -1,0 +1,26 @@
+\doxysection{Conference Struct Reference}
+\hypertarget{structConference}{}\label{structConference}\index{Conference@{Conference}}
+
+
+Collaboration diagram for Conference\+:
+% FIG 0
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{structConference_adcd63cceb5dbaf3951949144a145f238}\label{structConference_adcd63cceb5dbaf3951949144a145f238} 
+std\+::vector$<$ \mbox{\hyperlink{structSubmission}{Submission}} $>$ {\bfseries submissions}
+\item 
+\Hypertarget{structConference_ab0aa89f91d0601205cc471e9af234b9f}\label{structConference_ab0aa89f91d0601205cc471e9af234b9f} 
+std\+::vector$<$ \mbox{\hyperlink{structReviewer}{Reviewer}} $>$ {\bfseries reviewers}
+\item 
+\Hypertarget{structConference_a68edb9e6ca60ac144da83c1a1bcd4cdd}\label{structConference_a68edb9e6ca60ac144da83c1a1bcd4cdd} 
+\mbox{\hyperlink{structParameters}{Parameters}} {\bfseries params}
+\item 
+\Hypertarget{structConference_ae9ce93fb7ef0297f92acd075988544ac}\label{structConference_ae9ce93fb7ef0297f92acd075988544ac} 
+\mbox{\hyperlink{structControl}{Control}} {\bfseries control}
+\end{DoxyCompactItemize}
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Conference.\+h\end{DoxyCompactItemize}

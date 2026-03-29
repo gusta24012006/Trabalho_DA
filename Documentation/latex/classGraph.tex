@@ -1,0 +1,89 @@
+\doxysection{Graph Class Reference}
+\hypertarget{classGraph}{}\label{classGraph}\index{Graph@{Graph}}
+
+
+Grafo dirigido com lista de adjacencias para calculo de fluxo maximo.  
+
+
+
+
+{\ttfamily \#include $<$graph.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classGraph_a7b14c9bc0b5fbf50165aaf92f4aeef1d}{Graph}} (int n)
+\begin{DoxyCompactList}\small\item\em Constroi um grafo com n nos sem arestas. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classGraph_a09a4e3929f632c7e408e37bb7d1ea258}{add\+Edge}} (int from, int to, int capacity)
+\begin{DoxyCompactList}\small\item\em Adiciona aresta dirigida de from para to com a capacidade dada e respetiva aresta inversa. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classGraph_afd2749a1cd58db2d3b6fa6eef639399c}{edmonds\+Karp}} (int source, int sink)
+\begin{DoxyCompactList}\small\item\em Calcula o fluxo maximo entre source e sink pelo algoritmo de Edmonds-\/\+Karp. @complexity O(\+V \texorpdfstring{$\ast$}{*} E\texorpdfstring{$^\wedge$}{\string^}2) onde V = nos, E = arestas. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classGraph_a33dcfbe6d2ec42e6b781606961caa98d}{print\+Graph}} () const
+\begin{DoxyCompactList}\small\item\em Imprime todas as arestas com capacidade positiva. \end{DoxyCompactList}\item 
+const std\+::vector$<$ std\+::vector$<$ \mbox{\hyperlink{structEdge}{Edge}} $>$ $>$ \& \mbox{\hyperlink{classGraph_a3ea88db7ee1b44c1ad6db982d2287535}{get\+Adj}} () const
+\begin{DoxyCompactList}\small\item\em Devolve a lista de adjacencias em modo de leitura. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Grafo dirigido com lista de adjacencias para calculo de fluxo maximo. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classGraph_a7b14c9bc0b5fbf50165aaf92f4aeef1d}\label{classGraph_a7b14c9bc0b5fbf50165aaf92f4aeef1d} 
+\index{Graph@{Graph}!Graph@{Graph}}
+\index{Graph@{Graph}!Graph@{Graph}}
+\doxysubsubsection{\texorpdfstring{Graph()}{Graph()}}
+{\footnotesize\ttfamily Graph\+::\+Graph (\begin{DoxyParamCaption}\item[{int}]{n }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+
+
+Constroi um grafo com n nos sem arestas. 
+
+Constroi um grafo com n nos e listas de adjacencia vazias. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classGraph_a09a4e3929f632c7e408e37bb7d1ea258}\label{classGraph_a09a4e3929f632c7e408e37bb7d1ea258} 
+\index{Graph@{Graph}!addEdge@{addEdge}}
+\index{addEdge@{addEdge}!Graph@{Graph}}
+\doxysubsubsection{\texorpdfstring{addEdge()}{addEdge()}}
+{\footnotesize\ttfamily void Graph\+::add\+Edge (\begin{DoxyParamCaption}\item[{int}]{from,  }\item[{int}]{to,  }\item[{int}]{capacity }\end{DoxyParamCaption})}
+
+
+
+Adiciona aresta dirigida de from para to com a capacidade dada e respetiva aresta inversa. 
+
+Adiciona aresta dirigida de from para to com a capacidade dada. Adiciona tambem a aresta inversa com capacidade zero para suporte ao algoritmo de fluxo. @complexity O(1) \Hypertarget{classGraph_afd2749a1cd58db2d3b6fa6eef639399c}\label{classGraph_afd2749a1cd58db2d3b6fa6eef639399c} 
+\index{Graph@{Graph}!edmondsKarp@{edmondsKarp}}
+\index{edmondsKarp@{edmondsKarp}!Graph@{Graph}}
+\doxysubsubsection{\texorpdfstring{edmondsKarp()}{edmondsKarp()}}
+{\footnotesize\ttfamily int Graph\+::edmonds\+Karp (\begin{DoxyParamCaption}\item[{int}]{source,  }\item[{int}]{sink }\end{DoxyParamCaption})}
+
+
+
+Calcula o fluxo maximo entre source e sink pelo algoritmo de Edmonds-\/\+Karp. @complexity O(\+V \texorpdfstring{$\ast$}{*} E\texorpdfstring{$^\wedge$}{\string^}2) onde V = nos, E = arestas. 
+
+Calcula o fluxo maximo entre source e sink usando BFS para encontrar o caminho aumentante mais curto em cada iteracao (Edmonds-\/\+Karp). @complexity O(\+V \texorpdfstring{$\ast$}{*} E\texorpdfstring{$^\wedge$}{\string^}2) onde V = nos, E = arestas. \Hypertarget{classGraph_a3ea88db7ee1b44c1ad6db982d2287535}\label{classGraph_a3ea88db7ee1b44c1ad6db982d2287535} 
+\index{Graph@{Graph}!getAdj@{getAdj}}
+\index{getAdj@{getAdj}!Graph@{Graph}}
+\doxysubsubsection{\texorpdfstring{getAdj()}{getAdj()}}
+{\footnotesize\ttfamily const std\+::vector$<$ std\+::vector$<$ \mbox{\hyperlink{structEdge}{Edge}} $>$ $>$ \& Graph\+::get\+Adj (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Devolve a lista de adjacencias em modo de leitura. 
+
+\Hypertarget{classGraph_a33dcfbe6d2ec42e6b781606961caa98d}\label{classGraph_a33dcfbe6d2ec42e6b781606961caa98d} 
+\index{Graph@{Graph}!printGraph@{printGraph}}
+\index{printGraph@{printGraph}!Graph@{Graph}}
+\doxysubsubsection{\texorpdfstring{printGraph()}{printGraph()}}
+{\footnotesize\ttfamily void Graph\+::print\+Graph (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Imprime todas as arestas com capacidade positiva. 
+
+Imprime todas as arestas com capacidade positiva no formato "{}u -\/$>$ v \texorpdfstring{$\vert$}{|} cap=\+C flow=\+F"{}. 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{graph_8h}{graph.\+h}}\item 
+\mbox{\hyperlink{graph_8cpp}{graph.\+cpp}}\end{DoxyCompactItemize}

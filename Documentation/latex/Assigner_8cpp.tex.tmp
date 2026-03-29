@@ -1,0 +1,75 @@
+\doxysection{Assigner.\+cpp File Reference}
+\hypertarget{Assigner_8cpp}{}\label{Assigner_8cpp}\index{Assigner.cpp@{Assigner.cpp}}
+{\ttfamily \#include "{}Assigner.\+h"{}}\newline
+{\ttfamily \#include $<$fstream$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$map$>$}\newline
+{\ttfamily \#include $<$algorithm$>$}\newline
+Include dependency graph for Assigner.\+cpp\+:
+% FIG 0
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \mbox{\hyperlink{Assigner_8cpp_ab0d727710779951bb63d1390052fb7ef}{run\+Risk\+Analysis}} (const \mbox{\hyperlink{structConference}{Conference}} \&conf, int baseline\+Flow, int mode)
+\begin{DoxyCompactList}\small\item\em Analise de risco K=1\+: remove cada revisor individualmente e verifica se o fluxo minimo ainda e alcancavel. Lista os revisores criticos. @complexity O(\+R \texorpdfstring{$\ast$}{*} V \texorpdfstring{$\ast$}{*} E\texorpdfstring{$^\wedge$}{\string^}2) onde R = numero de revisores. \end{DoxyCompactList}\item 
+static bool \mbox{\hyperlink{Assigner_8cpp_aead961da10e7c45396ec46a934c49d67}{is\+Compatible}} (const \mbox{\hyperlink{structSubmission}{Submission}} \&sub, const \mbox{\hyperlink{structReviewer}{Reviewer}} \&rev, int mode)
+\begin{DoxyCompactList}\small\item\em Verifica se uma submissao e um revisor sao compativeis de acordo com o modo. Modo 1\+: apenas dominios primarios. Modo 2\+: dominio secundario da submissao permitido. Modo 3\+: todos os dominios primarios e secundarios de ambos os lados. @complexity O(1) \end{DoxyCompactList}\item 
+static int \mbox{\hyperlink{Assigner_8cpp_aac0f3022636c44a62d4eed4c99241554}{matched\+Domain}} (const \mbox{\hyperlink{structSubmission}{Submission}} \&sub, const \mbox{\hyperlink{structReviewer}{Reviewer}} \&rev, int mode)
+\begin{DoxyCompactList}\small\item\em Devolve o dominio da submissao que originou a compatibilidade com o revisor. @complexity O(1) \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{Assigner_8cpp_a60ca66150c1fad929b56dc0e201fd115}{save\+Assignments}} (const \mbox{\hyperlink{classGraph}{Graph}} \&g, const \mbox{\hyperlink{structConference}{Conference}} \&conf, const string \&filename, int mode)
+\begin{DoxyCompactList}\small\item\em Escreve as atribuicoes no ficheiro CSV de saida. Formato\+: submissao -\/\texorpdfstring{$>$}{>} revisor e revisor -\/\texorpdfstring{$>$}{>} submissao, ordenados, com total no fim. @complexity O(\+S \texorpdfstring{$\ast$}{*} R) \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{Assigner_8cpp_a76342ec16ebcfba8837a4d831cf84d39}{save\+Missing\+Reviews}} (const \mbox{\hyperlink{classGraph}{Graph}} \&g, const \mbox{\hyperlink{structConference}{Conference}} \&conf, const string \&filename)
+\begin{DoxyCompactList}\small\item\em Regista no ficheiro as submissoes que nao receberam o minimo de revisoes. @complexity O(\+S \texorpdfstring{$\ast$}{*} R) \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{Assigner_8cpp_aead961da10e7c45396ec46a934c49d67}\label{Assigner_8cpp_aead961da10e7c45396ec46a934c49d67} 
+\index{Assigner.cpp@{Assigner.cpp}!isCompatible@{isCompatible}}
+\index{isCompatible@{isCompatible}!Assigner.cpp@{Assigner.cpp}}
+\doxysubsubsection{\texorpdfstring{isCompatible()}{isCompatible()}}
+{\footnotesize\ttfamily static bool is\+Compatible (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structSubmission}{Submission}} \&}]{sub,  }\item[{const \mbox{\hyperlink{structReviewer}{Reviewer}} \&}]{rev,  }\item[{int}]{mode }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Verifica se uma submissao e um revisor sao compativeis de acordo com o modo. Modo 1\+: apenas dominios primarios. Modo 2\+: dominio secundario da submissao permitido. Modo 3\+: todos os dominios primarios e secundarios de ambos os lados. @complexity O(1) 
+
+\Hypertarget{Assigner_8cpp_aac0f3022636c44a62d4eed4c99241554}\label{Assigner_8cpp_aac0f3022636c44a62d4eed4c99241554} 
+\index{Assigner.cpp@{Assigner.cpp}!matchedDomain@{matchedDomain}}
+\index{matchedDomain@{matchedDomain}!Assigner.cpp@{Assigner.cpp}}
+\doxysubsubsection{\texorpdfstring{matchedDomain()}{matchedDomain()}}
+{\footnotesize\ttfamily static int matched\+Domain (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structSubmission}{Submission}} \&}]{sub,  }\item[{const \mbox{\hyperlink{structReviewer}{Reviewer}} \&}]{rev,  }\item[{int}]{mode }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Devolve o dominio da submissao que originou a compatibilidade com o revisor. @complexity O(1) 
+
+\Hypertarget{Assigner_8cpp_ab0d727710779951bb63d1390052fb7ef}\label{Assigner_8cpp_ab0d727710779951bb63d1390052fb7ef} 
+\index{Assigner.cpp@{Assigner.cpp}!runRiskAnalysis@{runRiskAnalysis}}
+\index{runRiskAnalysis@{runRiskAnalysis}!Assigner.cpp@{Assigner.cpp}}
+\doxysubsubsection{\texorpdfstring{runRiskAnalysis()}{runRiskAnalysis()}}
+{\footnotesize\ttfamily static void run\+Risk\+Analysis (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structConference}{Conference}} \&}]{conf,  }\item[{int}]{baseline\+Flow,  }\item[{int}]{mode }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Analise de risco K=1\+: remove cada revisor individualmente e verifica se o fluxo minimo ainda e alcancavel. Lista os revisores criticos. @complexity O(\+R \texorpdfstring{$\ast$}{*} V \texorpdfstring{$\ast$}{*} E\texorpdfstring{$^\wedge$}{\string^}2) onde R = numero de revisores. 
+
+\Hypertarget{Assigner_8cpp_a60ca66150c1fad929b56dc0e201fd115}\label{Assigner_8cpp_a60ca66150c1fad929b56dc0e201fd115} 
+\index{Assigner.cpp@{Assigner.cpp}!saveAssignments@{saveAssignments}}
+\index{saveAssignments@{saveAssignments}!Assigner.cpp@{Assigner.cpp}}
+\doxysubsubsection{\texorpdfstring{saveAssignments()}{saveAssignments()}}
+{\footnotesize\ttfamily static void save\+Assignments (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classGraph}{Graph}} \&}]{g,  }\item[{const \mbox{\hyperlink{structConference}{Conference}} \&}]{conf,  }\item[{const string \&}]{filename,  }\item[{int}]{mode }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Escreve as atribuicoes no ficheiro CSV de saida. Formato\+: submissao -\/\texorpdfstring{$>$}{>} revisor e revisor -\/\texorpdfstring{$>$}{>} submissao, ordenados, com total no fim. @complexity O(\+S \texorpdfstring{$\ast$}{*} R) 
+
+\Hypertarget{Assigner_8cpp_a76342ec16ebcfba8837a4d831cf84d39}\label{Assigner_8cpp_a76342ec16ebcfba8837a4d831cf84d39} 
+\index{Assigner.cpp@{Assigner.cpp}!saveMissingReviews@{saveMissingReviews}}
+\index{saveMissingReviews@{saveMissingReviews}!Assigner.cpp@{Assigner.cpp}}
+\doxysubsubsection{\texorpdfstring{saveMissingReviews()}{saveMissingReviews()}}
+{\footnotesize\ttfamily static void save\+Missing\+Reviews (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classGraph}{Graph}} \&}]{g,  }\item[{const \mbox{\hyperlink{structConference}{Conference}} \&}]{conf,  }\item[{const string \&}]{filename }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Regista no ficheiro as submissoes que nao receberam o minimo de revisoes. @complexity O(\+S \texorpdfstring{$\ast$}{*} R) 
+

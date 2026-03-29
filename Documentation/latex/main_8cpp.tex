@@ -1,0 +1,136 @@
+\doxysection{main.\+cpp File Reference}
+\hypertarget{main_8cpp}{}\label{main_8cpp}\index{main.cpp@{main.cpp}}
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$iomanip$>$}\newline
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include $<$limits$>$}\newline
+{\ttfamily \#include "{}Csv\+Reader.\+h"{}}\newline
+{\ttfamily \#include "{}Assigner.\+h"{}}\newline
+Include dependency graph for main.\+cpp\+:
+% FIG 0
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \mbox{\hyperlink{main_8cpp_a2e16552dfbc9b6afc903a872ccbfe39e}{run\+Interactive\+Menu}} ()
+\begin{DoxyCompactList}\small\item\em Menu interativo que permite carregar dados, consultar informacao e configurar e executar o algoritmo de atribuicao. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{main_8cpp_a6f5e248370cca183fe256d8521a0c8c8}{run\+Batch\+Mode}} (const string \&input\+File, const string \&output\+File)
+\begin{DoxyCompactList}\small\item\em Le o ficheiro CSV, substitui o nome do ficheiro de saida pelo argumento da linha de comandos e executa o algoritmo de atribuicao. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{main_8cpp_a4e13c68ec3a03c7f04de1f30be1a410a}{print\+Separator}} ()
+\begin{DoxyCompactList}\small\item\em Imprime uma linha separadora. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{main_8cpp_a5eaea76394c984c3e834d276351441b2}{print\+Header}} (const string \&title)
+\begin{DoxyCompactList}\small\item\em Imprime um cabecalho com titulo. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{main_8cpp_abab2da18b29f9f029ce843320d433490}{list\+Submissions}} (const \mbox{\hyperlink{structConference}{Conference}} \&conf)
+\begin{DoxyCompactList}\small\item\em Lista todas as submissoes em formato de tabela. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{main_8cpp_aebd1bcffbfee5d6547817fe40f4f89d8}{list\+Reviewers}} (const \mbox{\hyperlink{structConference}{Conference}} \&conf)
+\begin{DoxyCompactList}\small\item\em Lista todos os revisores em formato de tabela. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{main_8cpp_aa03498c5b5f056847acde06cf3b0eed8}{show\+Parameters}} (const \mbox{\hyperlink{structConference}{Conference}} \&conf)
+\begin{DoxyCompactList}\small\item\em Mostra os parametros do algoritmo. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{main_8cpp_a49672808baf52e5bd89d76ecd40c6f29}{show\+Control}} (const \mbox{\hyperlink{structConference}{Conference}} \&conf)
+\begin{DoxyCompactList}\small\item\em Mostra as configuracoes de controlo atuais. \end{DoxyCompactList}\item 
+static int \mbox{\hyperlink{main_8cpp_af3fecedaa011fce9bc869c3e33bc02df}{get\+Int\+Input}} (const string \&prompt, int min, int max)
+\begin{DoxyCompactList}\small\item\em Pede um inteiro ao utilizador no intervalo \mbox{[}min, max\mbox{]}. Repete ate receber um valor valido. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{main_8cpp_a0ddf1224851353fc92bfbff6f499fa97}{main}} (int argc, char \texorpdfstring{$\ast$}{*}argv\mbox{[}$\,$\mbox{]})
+\begin{DoxyCompactList}\small\item\em Ponto de entrada. Modo interativo se sem argumentos, modo batch se chamado com\+: ./my\+Prog -\/b input.\+csv output.\+csv. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{main_8cpp_af3fecedaa011fce9bc869c3e33bc02df}\label{main_8cpp_af3fecedaa011fce9bc869c3e33bc02df} 
+\index{main.cpp@{main.cpp}!getIntInput@{getIntInput}}
+\index{getIntInput@{getIntInput}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{getIntInput()}{getIntInput()}}
+{\footnotesize\ttfamily static int get\+Int\+Input (\begin{DoxyParamCaption}\item[{const string \&}]{prompt,  }\item[{int}]{min,  }\item[{int}]{max }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Pede um inteiro ao utilizador no intervalo \mbox{[}min, max\mbox{]}. Repete ate receber um valor valido. 
+
+\Hypertarget{main_8cpp_aebd1bcffbfee5d6547817fe40f4f89d8}\label{main_8cpp_aebd1bcffbfee5d6547817fe40f4f89d8} 
+\index{main.cpp@{main.cpp}!listReviewers@{listReviewers}}
+\index{listReviewers@{listReviewers}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{listReviewers()}{listReviewers()}}
+{\footnotesize\ttfamily static void list\+Reviewers (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structConference}{Conference}} \&}]{conf }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Lista todos os revisores em formato de tabela. 
+
+\Hypertarget{main_8cpp_abab2da18b29f9f029ce843320d433490}\label{main_8cpp_abab2da18b29f9f029ce843320d433490} 
+\index{main.cpp@{main.cpp}!listSubmissions@{listSubmissions}}
+\index{listSubmissions@{listSubmissions}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{listSubmissions()}{listSubmissions()}}
+{\footnotesize\ttfamily static void list\+Submissions (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structConference}{Conference}} \&}]{conf }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Lista todas as submissoes em formato de tabela. 
+
+\Hypertarget{main_8cpp_a0ddf1224851353fc92bfbff6f499fa97}\label{main_8cpp_a0ddf1224851353fc92bfbff6f499fa97} 
+\index{main.cpp@{main.cpp}!main@{main}}
+\index{main@{main}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily int main (\begin{DoxyParamCaption}\item[{int}]{argc,  }\item[{char \texorpdfstring{$\ast$}{*}}]{argv\mbox{[}$\,$\mbox{]} }\end{DoxyParamCaption})}
+
+
+
+Ponto de entrada. Modo interativo se sem argumentos, modo batch se chamado com\+: ./my\+Prog -\/b input.\+csv output.\+csv. 
+
+\Hypertarget{main_8cpp_a5eaea76394c984c3e834d276351441b2}\label{main_8cpp_a5eaea76394c984c3e834d276351441b2} 
+\index{main.cpp@{main.cpp}!printHeader@{printHeader}}
+\index{printHeader@{printHeader}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{printHeader()}{printHeader()}}
+{\footnotesize\ttfamily static void print\+Header (\begin{DoxyParamCaption}\item[{const string \&}]{title }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Imprime um cabecalho com titulo. 
+
+\Hypertarget{main_8cpp_a4e13c68ec3a03c7f04de1f30be1a410a}\label{main_8cpp_a4e13c68ec3a03c7f04de1f30be1a410a} 
+\index{main.cpp@{main.cpp}!printSeparator@{printSeparator}}
+\index{printSeparator@{printSeparator}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{printSeparator()}{printSeparator()}}
+{\footnotesize\ttfamily static void print\+Separator (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Imprime uma linha separadora. 
+
+\Hypertarget{main_8cpp_a6f5e248370cca183fe256d8521a0c8c8}\label{main_8cpp_a6f5e248370cca183fe256d8521a0c8c8} 
+\index{main.cpp@{main.cpp}!runBatchMode@{runBatchMode}}
+\index{runBatchMode@{runBatchMode}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{runBatchMode()}{runBatchMode()}}
+{\footnotesize\ttfamily static void run\+Batch\+Mode (\begin{DoxyParamCaption}\item[{const string \&}]{input\+File,  }\item[{const string \&}]{output\+File }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Le o ficheiro CSV, substitui o nome do ficheiro de saida pelo argumento da linha de comandos e executa o algoritmo de atribuicao. 
+
+\Hypertarget{main_8cpp_a2e16552dfbc9b6afc903a872ccbfe39e}\label{main_8cpp_a2e16552dfbc9b6afc903a872ccbfe39e} 
+\index{main.cpp@{main.cpp}!runInteractiveMenu@{runInteractiveMenu}}
+\index{runInteractiveMenu@{runInteractiveMenu}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{runInteractiveMenu()}{runInteractiveMenu()}}
+{\footnotesize\ttfamily static void run\+Interactive\+Menu (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Menu interativo que permite carregar dados, consultar informacao e configurar e executar o algoritmo de atribuicao. 
+
+\Hypertarget{main_8cpp_a49672808baf52e5bd89d76ecd40c6f29}\label{main_8cpp_a49672808baf52e5bd89d76ecd40c6f29} 
+\index{main.cpp@{main.cpp}!showControl@{showControl}}
+\index{showControl@{showControl}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{showControl()}{showControl()}}
+{\footnotesize\ttfamily static void show\+Control (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structConference}{Conference}} \&}]{conf }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Mostra as configuracoes de controlo atuais. 
+
+\Hypertarget{main_8cpp_aa03498c5b5f056847acde06cf3b0eed8}\label{main_8cpp_aa03498c5b5f056847acde06cf3b0eed8} 
+\index{main.cpp@{main.cpp}!showParameters@{showParameters}}
+\index{showParameters@{showParameters}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{showParameters()}{showParameters()}}
+{\footnotesize\ttfamily static void show\+Parameters (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structConference}{Conference}} \&}]{conf }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Mostra os parametros do algoritmo. 
+

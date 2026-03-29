@@ -1,0 +1,42 @@
+\doxysection{graph.\+h}
+\hypertarget{graph_8h_source}{}\label{graph_8h_source}\mbox{\hyperlink{graph_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ GRAPH\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ GRAPH\_H}}
+\DoxyCodeLine{00003\ \ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <queue>}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <limits>}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{00008\ \ }
+\DoxyCodeLine{00010\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structEdge}{Edge}}\ \{}
+\DoxyCodeLine{00011\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structEdge_a7848f67e4e8ccb97be14506164d7a267}{to}};\ \ \ \ \ \ \ }
+\DoxyCodeLine{00012\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structEdge_ad606e57bc68898672de1727e299a7d65}{capacity}};\ }
+\DoxyCodeLine{00013\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structEdge_a189258d91c07f4a0b76798cb7fe2b112}{flow}};\ \ \ \ \ }
+\DoxyCodeLine{00014\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structEdge_adf8a03cbd155c21e41ffed86ed1bb45b}{rev}};\ \ \ \ \ \ }
+\DoxyCodeLine{00015\ \ }
+\DoxyCodeLine{00016\ \ \ \ \ \mbox{\hyperlink{structEdge_a98fd858d4dab1fde4a88b4ae316246a5}{Edge}}(\textcolor{keywordtype}{int}\ \mbox{\hyperlink{structEdge_a7848f67e4e8ccb97be14506164d7a267}{to}},\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structEdge_ad606e57bc68898672de1727e299a7d65}{capacity}},\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structEdge_adf8a03cbd155c21e41ffed86ed1bb45b}{rev}})}
+\DoxyCodeLine{00017\ \ \ \ \ \ \ \ \ \ \ \ \ :\ \mbox{\hyperlink{structEdge_a7848f67e4e8ccb97be14506164d7a267}{to}}(\mbox{\hyperlink{structEdge_a7848f67e4e8ccb97be14506164d7a267}{to}}),\ \mbox{\hyperlink{structEdge_ad606e57bc68898672de1727e299a7d65}{capacity}}(\mbox{\hyperlink{structEdge_ad606e57bc68898672de1727e299a7d65}{capacity}}),\ \mbox{\hyperlink{structEdge_a189258d91c07f4a0b76798cb7fe2b112}{flow}}(0),\ \mbox{\hyperlink{structEdge_adf8a03cbd155c21e41ffed86ed1bb45b}{rev}}(\mbox{\hyperlink{structEdge_adf8a03cbd155c21e41ffed86ed1bb45b}{rev}})\ \{\}}
+\DoxyCodeLine{00018\ \};}
+\DoxyCodeLine{00019\ \ }
+\DoxyCodeLine{00021\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classGraph}{Graph}}\ \{}
+\DoxyCodeLine{00022\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00023\ \ \ \ \ \textcolor{keywordtype}{int}\ numVertices;}
+\DoxyCodeLine{00024\ \ \ \ \ std::vector<std::vector<Edge>>\ adj;\ }
+\DoxyCodeLine{00025\ \ }
+\DoxyCodeLine{00026\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00028\ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{classGraph}{Graph}}(\textcolor{keywordtype}{int}\ n);}
+\DoxyCodeLine{00029\ \ }
+\DoxyCodeLine{00031\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classGraph_a09a4e3929f632c7e408e37bb7d1ea258}{addEdge}}(\textcolor{keywordtype}{int}\ from,\ \textcolor{keywordtype}{int}\ to,\ \textcolor{keywordtype}{int}\ capacity);}
+\DoxyCodeLine{00032\ \ }
+\DoxyCodeLine{00035\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classGraph_afd2749a1cd58db2d3b6fa6eef639399c}{edmondsKarp}}(\textcolor{keywordtype}{int}\ source,\ \textcolor{keywordtype}{int}\ sink);}
+\DoxyCodeLine{00036\ \ }
+\DoxyCodeLine{00038\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classGraph_a33dcfbe6d2ec42e6b781606961caa98d}{printGraph}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00039\ \ }
+\DoxyCodeLine{00041\ \ \ \ \ \textcolor{keyword}{const}\ std::vector<std::vector<Edge>>\&\ \mbox{\hyperlink{classGraph_a3ea88db7ee1b44c1ad6db982d2287535}{getAdj}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ adj;\ \}}
+\DoxyCodeLine{00042\ \};}
+\DoxyCodeLine{00043\ \ }
+\DoxyCodeLine{00044\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ GRAPH\_H}}
+\DoxyCodeLine{00045\ \ }
+
+\end{DoxyCode}

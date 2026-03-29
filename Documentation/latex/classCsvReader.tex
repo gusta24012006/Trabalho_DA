@@ -1,0 +1,38 @@
+\doxysection{Csv\+Reader Class Reference}
+\hypertarget{classCsvReader}{}\label{classCsvReader}\index{CsvReader@{CsvReader}}
+
+
+Classe responsavel pela leitura e parsing do ficheiro CSV de entrada.  
+
+
+
+
+{\ttfamily \#include $<$Csv\+Reader.\+h$>$}
+
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static bool \mbox{\hyperlink{classCsvReader_a2fac320711825f5f2a25c9432511fd36}{parse\+File}} (const std\+::string \&filename, \mbox{\hyperlink{structConference}{Conference}} \&conf)
+\begin{DoxyCompactList}\small\item\em Le e interpreta o ficheiro CSV e preenche a estrutura conf. Devolve true em caso de sucesso, false se o ficheiro nao puder ser aberto. @complexity O(\+L) onde L = numero de linhas do ficheiro. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Classe responsavel pela leitura e parsing do ficheiro CSV de entrada. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classCsvReader_a2fac320711825f5f2a25c9432511fd36}\label{classCsvReader_a2fac320711825f5f2a25c9432511fd36} 
+\index{CsvReader@{CsvReader}!parseFile@{parseFile}}
+\index{parseFile@{parseFile}!CsvReader@{CsvReader}}
+\doxysubsubsection{\texorpdfstring{parseFile()}{parseFile()}}
+{\footnotesize\ttfamily bool Csv\+Reader\+::parse\+File (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{filename,  }\item[{\mbox{\hyperlink{structConference}{Conference}} \&}]{conf }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Le e interpreta o ficheiro CSV e preenche a estrutura conf. Devolve true em caso de sucesso, false se o ficheiro nao puder ser aberto. @complexity O(\+L) onde L = numero de linhas do ficheiro. 
+
+Le o ficheiro CSV linha a linha e preenche a estrutura \doxylink{structConference}{Conference}. Identifica as seccoes (\#\+Submissions, \#\+Reviewers, \doxylink{structParameters}{Parameters}, \doxylink{structControl}{Control}) e interpreta os campos de cada linha conforme a seccao ativa. @complexity O(\+L) onde L = numero de linhas do ficheiro. 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{CsvReader_8h}{Csv\+Reader.\+h}}\item 
+\mbox{\hyperlink{CsvReader_8cpp}{Csv\+Reader.\+cpp}}\end{DoxyCompactItemize}
