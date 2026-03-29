@@ -4,9 +4,9 @@
 #include <limits>
 #include "CsvReader.h"
 #include "Assigner.h"
-
+ 
 using namespace std;
-
+ 
 static void runInteractiveMenu();
 static void runBatchMode(const string &inputFile, const string &outputFile);
 static void printSeparator();
@@ -16,9 +16,9 @@ static void listReviewers(const Conference &conf);
 static void showParameters(const Conference &conf);
 static void showControl(const Conference &conf);
 static int  getIntInput(const string &prompt, int min, int max);
-
-// Ponto de entrada. Modo interativo se sem argumentos,
-// modo batch se chamado com: ./myProg -b input.csv output.csv
+ 
+/// @brief Ponto de entrada. Modo interativo se sem argumentos,
+/// modo batch se chamado com: ./myProg -b input.csv output.csv
 int main(int argc, char *argv[]) {
     if (argc == 4 && string(argv[1]) == "-b") {
         runBatchMode(string(argv[2]), string(argv[3]));
@@ -33,9 +33,9 @@ int main(int argc, char *argv[]) {
     runInteractiveMenu();
     return 0;
 }
-
-// Le o ficheiro CSV, substitui o nome do ficheiro de saida pelo argumento
-// da linha de comandos e executa o algoritmo de atribuicao.
+ 
+/// @brief Le o ficheiro CSV, substitui o nome do ficheiro de saida pelo argumento
+/// da linha de comandos e executa o algoritmo de atribuicao.
 static void runBatchMode(const string &inputFile, const string &outputFile) {
     Conference conf;
     if (!CsvReader::parseFile(inputFile, conf)) {
@@ -49,13 +49,13 @@ static void runBatchMode(const string &inputFile, const string &outputFile) {
          << "  RiskAnalysis=" << conf.control.riskAnalysis << "\n";
     Assigner::buildAndRun(conf);
 }
-
-//Menu interativo que permite carregar dados, consultar informacao
-//e configurar e executar o algoritmo de atribuicao.
+ 
+/// @brief Menu interativo que permite carregar dados, consultar informacao
+/// e configurar e executar o algoritmo de atribuicao.
 static void runInteractiveMenu() {
     Conference conf;
     bool dataLoaded = false;
-
+ 
     while (true) {
         printHeader("Scientific Conference Assignment Tool");
         cout << "  1. Carregar dataset (CSV)\n";
@@ -69,11 +69,11 @@ static void runInteractiveMenu() {
         cout << "  9. Alterar nome do ficheiro de saida\n";
         cout << "  0. Sair\n";
         printSeparator();
-
+ 
         int choice = getIntInput("Opcao", 0, 9);
-
+ 
         switch (choice) {
-
+ 
             // Carrega um novo dataset a partir de um ficheiro CSV
             case 1: {
                 cout << "Nome do ficheiro CSV: ";
@@ -92,31 +92,31 @@ static void runInteractiveMenu() {
                 }
                 break;
             }
-
+ 
             case 2: {
                 if (!dataLoaded) { cerr << "[ERRO] Nenhum dataset carregado.\n"; break; }
                 listSubmissions(conf);
                 break;
             }
-
+ 
             case 3: {
                 if (!dataLoaded) { cerr << "[ERRO] Nenhum dataset carregado.\n"; break; }
                 listReviewers(conf);
                 break;
             }
-
+ 
             case 4: {
                 if (!dataLoaded) { cerr << "[ERRO] Nenhum dataset carregado.\n"; break; }
                 showParameters(conf);
                 break;
             }
-
+ 
             case 5: {
                 if (!dataLoaded) { cerr << "[ERRO] Nenhum dataset carregado.\n"; break; }
                 showControl(conf);
                 break;
             }
-
+ 
             // Executa o algoritmo com as configuracoes atuais
             case 6: {
                 if (!dataLoaded) { cerr << "[ERRO] Nenhum dataset carregado.\n"; break; }
@@ -128,7 +128,7 @@ static void runInteractiveMenu() {
                 Assigner::buildAndRun(conf);
                 break;
             }
-
+ 
             // Altera o modo de compatibilidade usado na atribuicao
             case 7: {
                 if (!dataLoaded) { cerr << "[ERRO] Nenhum dataset carregado.\n"; break; }
@@ -143,7 +143,7 @@ static void runInteractiveMenu() {
                 cout << "[OK] GenerateAssignments definido para " << mode << ".\n";
                 break;
             }
-
+ 
             // Define o nivel K da analise de risco
             case 8: {
                 if (!dataLoaded) { cerr << "[ERRO] Nenhum dataset carregado.\n"; break; }
@@ -155,7 +155,7 @@ static void runInteractiveMenu() {
                 cout << "[OK] RiskAnalysis definido para " << k << ".\n";
                 break;
             }
-
+ 
             // Altera o nome do ficheiro de saida
             case 9: {
                 if (!dataLoaded) { cerr << "[ERRO] Nenhum dataset carregado.\n"; break; }
@@ -172,31 +172,31 @@ static void runInteractiveMenu() {
                 }
                 break;
             }
-
+ 
             case 0:
                 cout << "Ate logo!\n";
                 return;
         }
-
+ 
         cout << "\nPressione Enter para continuar...";
         cin.get();
     }
 }
-
-//Imprime uma linha separadora.
+ 
+/// @brief Imprime uma linha separadora.
 static void printSeparator() {
     cout << string(55, '-') << "\n";
 }
-
-//Imprime um cabecalho com titulo.
+ 
+/// @brief Imprime um cabecalho com titulo.
 static void printHeader(const string &title) {
     cout << "\n";
     printSeparator();
     cout << "  " << title << "\n";
     printSeparator();
 }
-
-//Lista todas as submissoes em formato de tabela.
+ 
+/// @brief Lista todas as submissoes em formato de tabela.
 static void listSubmissions(const Conference &conf) {
     printHeader("Submissoes (" + to_string(conf.submissions.size()) + " total)");
     cout << left
@@ -219,8 +219,8 @@ static void listSubmissions(const Conference &conf) {
              << "\n";
     }
 }
-
-//Lista todos os revisores em formato de tabela.
+ 
+/// @brief Lista todos os revisores em formato de tabela.
 static void listReviewers(const Conference &conf) {
     printHeader("Revisores (" + to_string(conf.reviewers.size()) + " total)");
     cout << left
@@ -243,8 +243,8 @@ static void listReviewers(const Conference &conf) {
              << "\n";
     }
 }
-
-//Mostra os parametros do algoritmo.
+ 
+/// @brief Mostra os parametros do algoritmo.
 static void showParameters(const Conference &conf) {
     printHeader("Parametros");
     cout << "  MinReviewsPerSubmission    : " << conf.params.minReviewsPerSubmission    << "\n";
@@ -254,17 +254,17 @@ static void showParameters(const Conference &conf) {
     cout << "  PrimarySubmissionDomain    : " << conf.params.primarySubmissionDomain    << "\n";
     cout << "  SecondarySubmissionDomain  : " << conf.params.secondarySubmissionDomain  << "\n";
 }
-
-//Mostra as configuracoes de controlo atuais.
+ 
+/// @brief Mostra as configuracoes de controlo atuais.
 static void showControl(const Conference &conf) {
     printHeader("Configuracoes de Controlo");
     cout << "  GenerateAssignments : " << conf.control.generateAssignments << "\n";
     cout << "  RiskAnalysis        : " << conf.control.riskAnalysis        << "\n";
     cout << "  OutputFileName      : " << conf.control.outputFileName      << "\n";
 }
-
-//Pede um inteiro ao utilizador no intervalo [min, max].
-//Repete ate receber um valor valido.
+ 
+/// @brief Pede um inteiro ao utilizador no intervalo [min, max].
+/// Repete ate receber um valor valido.
 static int getIntInput(const string &prompt, int min, int max) {
     int value;
     while (true) {

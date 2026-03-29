@@ -2,21 +2,26 @@
 #include <fstream>
 #include <sstream>
 #include <iostream>
-
+ 
 using namespace std;
-
+ 
+/// @brief Remove espacos em branco no inicio e no fim da string s.
 void CsvReader::trim(string &s) {
     while (!s.empty() && isspace(s.front())) s.erase(s.begin());
     while (!s.empty() && isspace(s.back())) s.pop_back();
 }
-
+ 
+/// @brief Le o ficheiro CSV linha a linha e preenche a estrutura Conference.
+/// Identifica as seccoes (#Submissions, #Reviewers, #Parameters, #Control)
+/// e interpreta os campos de cada linha conforme a seccao ativa.
+/// @complexity O(L) onde L = numero de linhas do ficheiro
 bool CsvReader::parseFile(const string &filename, Conference &conf) {
     ifstream file(filename);
     if (!file.is_open()) {
         cerr << "Erro: não foi possível abrir o ficheiro " << filename << endl;
         return false;
     }
-
+ 
     string line;
     string section;
     while (getline(file, line)) {
@@ -28,7 +33,7 @@ bool CsvReader::parseFile(const string &filename, Conference &conf) {
             else if (line.rfind("#Control", 0) == 0) section = "Control";
             continue;
         }
-
+ 
         stringstream ss(line);
         string field;
         vector<string> fields;
@@ -36,7 +41,7 @@ bool CsvReader::parseFile(const string &filename, Conference &conf) {
             trim(field);
             fields.push_back(field);
         }
-
+ 
         if (section == "Submissions" && fields.size() >= 5) {
             int id = stoi(fields[0]);
             conf.submissions.emplace_back(
@@ -70,8 +75,7 @@ bool CsvReader::parseFile(const string &filename, Conference &conf) {
             }
         }
     }
-
+ 
     file.close();
     return true;
 }
-
